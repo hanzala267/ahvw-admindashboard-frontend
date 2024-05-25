@@ -13,7 +13,6 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 const ServicesDetails = () => {
-  // Placeholder for services data (to be replaced with data fetched from the backend)
   const Services = [
     {
       Service_ID: "AMANAT-YV98PN-2023919_1031",
@@ -148,12 +147,15 @@ const ServicesDetails = () => {
           {Services.map((service) => {
             if (service.Status === "Booked") {
               return (
-                <Card className="my-3 p-3 hover:scale-105 transition ease-in-out">
-                  <div key={service.Service_ID}>
+                <Card
+                  key={service.Service_ID}
+                  className="my-3 p-3 hover:scale-105 transition ease-in-out"
+                >
+                  <div>
                     <div className="font-semibold">{service.Service_ID}</div>
                     <div className="font-mono">{service.Vehicle}</div>
                     <div>Date In: {service.Date_In}</div>
-                    <div>Dtae Out: {service.Date_Out}</div>
+                    <div>Date Out: {service.Date_Out}</div>
                     <Dialog>
                       <DialogTrigger onClick={() => handleDialogOpen(service)}>
                         <Button variant="outline" className="my-1">
@@ -174,12 +176,16 @@ const ServicesDetails = () => {
             return null;
           })}
         </TabsContent>
+
         <TabsContent value="Ongoing">
           {Services.map((service) => {
             if (service.Status === "Ongoing") {
               return (
-                <Card className="my-3 p-3 hover:scale-105 transition ease-in-out">
-                  <div key={service.Service_ID}>
+                <Card
+                  key={service.Service_ID}
+                  className="my-3 p-3 hover:scale-105 transition ease-in-out"
+                >
+                  <div>
                     <div className="font-semibold">{service.Service_ID}</div>
                     <div className="font-mono">{service.Vehicle}</div>
                     <div>{service.Date_In}</div>
@@ -204,12 +210,16 @@ const ServicesDetails = () => {
             return null;
           })}
         </TabsContent>
+
         <TabsContent value="Closed">
           {Services.map((service) => {
             if (service.Status === "Closed") {
               return (
-                <Card className="my-3 p-3 hover:scale-105 transition ease-in-out">
-                  <div key={service.Service_ID}>
+                <Card
+                  key={service.Service_ID}
+                  className="my-3 p-3 hover:scale-105 transition ease-in-out"
+                >
+                  <div>
                     <div className="font-semibold">{service.Service_ID}</div>
                     <div className="font-mono">{service.Vehicle}</div>
                     <div>{service.Date_In}</div>
