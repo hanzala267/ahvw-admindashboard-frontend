@@ -20,6 +20,7 @@ export default function Navbar() {
 
           <Link
             href="/"
+            prefetch={true}
             className="transition-transform transform duration-200 hover:scale-105 hover:text-black"
           >
             <span className=" text-gray-800 ">
@@ -29,6 +30,7 @@ export default function Navbar() {
           </Link>
           <Link
             href="/Vahicles"
+            prefetch={true}
             className="transition-transform transform duration-200 hover:scale-105 hover:text-black"
           >
             <span className=" text-gray-800 ">
@@ -38,6 +40,7 @@ export default function Navbar() {
           </Link>
           <Link
             href="/Customers"
+            prefetch={true}
             className="transition-transform transform duration-200 hover:scale-105 hover:text-black"
           >
             <span className=" text-gray-800 ">
@@ -47,6 +50,7 @@ export default function Navbar() {
           </Link>
           <Link
             href="/Services"
+            prefetch={true}
             className="transition-transform transform duration-200 hover:scale-105 hover:text-black"
           >
             <span className=" text-gray-800 ">
@@ -55,7 +59,18 @@ export default function Navbar() {
             </span>
           </Link>
           <Link
+            href="/Employee"
+            prefetch={true}
+            className="transition-transform transform duration-200 hover:scale-105 hover:text-black"
+          >
+            <span className=" text-gray-800 ">
+              Employee
+              <span className="absolute left-0 bottom-0 w-full h-[2px] bg-black transform scale-x-0 transition-transform duration-200 hover:scale-x-100"></span>
+            </span>
+          </Link>
+          <Link
             href="/Inventory"
+            prefetch={true}
             className="transition-transform transform duration-200 hover:scale-105 hover:text-black"
           >
             <span className=" text-gray-800 ">
@@ -87,29 +102,44 @@ export default function Navbar() {
 
               <Link
                 href="/"
+                prefetch={true}
                 className="text-muted-foreground hover:text-foreground"
               >
                 Home
               </Link>
               <Link
                 href="/Vahicles"
+                prefetch={true}
                 className="text-muted-foreground hover:text-foreground"
               >
                 Vehicles
               </Link>
               <Link
                 href="/Customers"
+                prefetch={true}
                 className="text-muted-foreground hover:text-foreground"
               >
                 Customers
               </Link>
               <Link
                 href="/Services"
+                prefetch={true}
                 className="text-muted-foreground hover:text-foreground"
               >
                 Services
               </Link>
-              <Link href="/Inventory" className="hover:text-foreground">
+              <Link
+                href="/Employee"
+                prefetch={true}
+                className="text-muted-foreground hover:text-foreground"
+              >
+                Employee
+              </Link>
+              <Link
+                href="/Inventory"
+                prefetch={true}
+                className="hover:text-foreground"
+              >
                 Inventory
               </Link>
             </nav>

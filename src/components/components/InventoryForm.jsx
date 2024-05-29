@@ -20,6 +20,10 @@ export default function Component() {
             <Label htmlFor="brand">Brand</Label>
             <Input id="brand" placeholder="Enter brand" />
           </div>
+          <div className="grid gap-2">
+            <Label htmlFor="Invoice">Invoice Number</Label>
+            <Input id="Invoice" placeholder="Enter Invoice Number" />
+          </div>
           <div className="grid grid-cols-2 gap-4">
             <div className="grid gap-2">
               <Label htmlFor="costPrice">Cost Price</Label>

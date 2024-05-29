@@ -1,87 +1,79 @@
 "use client";
-import React from "react";
+import { useState } from "react";
 import Navbar from "@/components/components/Navbar";
-import Customercard from "@/components/components/Customercard";
 import VahiclesDetails from "@/components/components/VahiclesDetails";
-import VahiclesPast from "@/components/components/VahiclesPast";
-import VahiclesUpcoming from "@/components/components/VahiclesUpcoming";
+import VehiclePast from "@/components/components/VahiclesPast";
+import VehicleUpcoming from "@/components/components/VahiclesUpcoming";
+import MenuIcon from "@/components/components/MenuIcon";
+import { Input } from "@/components/ui/input";
 
-const customers = [
-  {
-    Company_Name: "ACE FREIGHTLINES PTY LTD",
-    Customer_Nickname: "ACE",
-    Status: "Active",
-    Type: "Customer",
-    Postcode: "3030",
-    Invoicing_Contact: "Akash Chaudhary",
-    Vehicle: "cajd6hcx",
-  },
-  {
-    Company_Name: "ACE FREIGHTLINES PTY LTD",
-    Customer_Nickname: "ACE",
-    Status: "Active",
-    Type: "Customer",
-    Postcode: "3030",
-    Invoicing_Contact: "Akash Chaudhary",
-    Vehicle: "cajd6hcx",
-  },
-  {
-    Company_Name: "ACE FREIGHTLINES PTY LTD",
-    Customer_Nickname: "ACE",
-    Status: "Active",
-    Type: "Customer",
-    Postcode: "3030",
-    Invoicing_Contact: "Akash Chaudhary",
-    Vehicle: "cajd6hcx",
-  },
-  {
-    Company_Name: "ACE FREIGHTLINES PTY LTD",
-    Customer_Nickname: "ACE",
-    Status: "Active",
-    Type: "Customer",
-    Postcode: "3030",
-    Invoicing_Contact: "Akash Chaudhary",
-    Vehicle: "cajd6hcx",
-  },
+const vehicles = [
+  { id: "cajd6hcx", name: "Vehicle 1" },
+  { id: "dajd7hdy", name: "Vehicle 2" },
+  { id: "eajd8hez", name: "Vehicle 3" },
+  { id: "fajd9hfa", name: "Vehicle 4" },
 ];
 
-function Page() {
-  return (
-    <div>
-      <Navbar />
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className="p-2 lg:border-r lg:border-gray-300">
-            <div className="text-2xl font-semibold text-center mt-12 mb-6">
-              Customers
-            </div>
-            <div className="mx-2 items-center justify-center">
-              {customers.map((customer, index) => (
-                <Customercard key={index} customer={customer} />
-              ))}
-            </div>
-          </div>
-          <div className="p-2 lg:border-r lg:border-gray-300">
-            <div className="text-2xl font-semibold text-center mt-12 mb-6">
-              Vahicles
-            </div>
-            <div className="p-2">
-              <VahiclesDetails />
-            </div>
-          </div>
-          <div className="p-2">
-            <div className="text-2xl font-semibold text-center mt-12 mb-6">
-              Past & Upcoming Services
-            </div>
-            <div className="p-2">
-              <VahiclesPast />
-              <VahiclesUpcoming />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+const Page = () => {
+  const [selectedVehicle, setSelectedVehicle] = useState(vehicles[0]);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSidebarToggle = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
+  const filteredVehicles = vehicles.filter((vehicle) =>
+    vehicle.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
-}
+
+  return (
+    <>
+      <Navbar />
+      <div className="min-h-screen flex flex-col md:flex-row">
+        <aside
+          className={`fixed inset-0 z-40 flex-none w-64 bg-white border-r border-gray-200 p-4 shadow-md transition-transform transform md:relative md:translate-x-0 ${
+            sidebarOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
+        >
+          <h2 className="text-xl font-medium text-gray-900 mb-4">Vehicles</h2>
+          <Input
+            type="text"
+            placeholder="Search vehicles"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="mb-4"
+          />
+          <ul>
+            {filteredVehicles.map((vehicle) => (
+              <li
+                key={vehicle.id}
+                className={`p-2 cursor-pointer rounded-lg ${
+                  selectedVehicle.id === vehicle.id
+                    ? "bg-primary text-white"
+                    : "hover:bg-primary/90 my-4 hover:text-white"
+                }`}
+                onClick={() => {
+                  setSelectedVehicle(vehicle);
+                  setSidebarOpen(false);
+                }}
+              >
+                {vehicle.name}
+              </li>
+            ))}
+          </ul>
+        </aside>
+        <div className="md:hidden p-4">
+          <MenuIcon onClick={handleSidebarToggle} />
+        </div>
+        <main className="flex-1 p-6 bg-gray-50 space-y-6">
+          <VahiclesDetails vehicle={selectedVehicle} />
+          <VehiclePast vehicle={selectedVehicle} />
+          <VehicleUpcoming vehicle={selectedVehicle} />
+        </main>
+      </div>
+    </>
+  );
+};
 
 export default Page;

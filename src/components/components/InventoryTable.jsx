@@ -45,6 +45,7 @@ function InventoryTable() {
                 <TableHead>Status</TableHead>
                 <TableHead>Cost Price</TableHead>
                 <TableHead>Sale Price</TableHead>
+                <TableHead>Invoice Number</TableHead> {/* Added column */}
                 <TableHead className="hidden md:table-cell">
                   Total Sales
                 </TableHead>
@@ -66,6 +67,7 @@ function InventoryTable() {
                 </TableCell>
                 <TableCell>$68.00</TableCell>
                 <TableCell>$98.25</TableCell>
+                <TableCell>INV-001</TableCell> {/* Sample Invoice Number */}
                 <TableCell className="hidden md:table-cell">25</TableCell>
                 <TableCell className="hidden md:table-cell">
                   2023-07-12 10:42 AM
@@ -95,6 +97,7 @@ function InventoryTable() {
                 </TableCell>
                 <TableCell>$68.00</TableCell>
                 <TableCell>$98.25</TableCell>
+                <TableCell>INV-001</TableCell> {/* Sample Invoice Number */}
                 <TableCell className="hidden md:table-cell">25</TableCell>
                 <TableCell className="hidden md:table-cell">
                   2023-07-12 10:42 AM
@@ -124,6 +127,7 @@ function InventoryTable() {
                 </TableCell>
                 <TableCell>$68.00</TableCell>
                 <TableCell>$98.25</TableCell>
+                <TableCell>INV-001</TableCell> {/* Sample Invoice Number */}
                 <TableCell className="hidden md:table-cell">25</TableCell>
                 <TableCell className="hidden md:table-cell">
                   2023-07-12 10:42 AM
@@ -153,6 +157,7 @@ function InventoryTable() {
                 </TableCell>
                 <TableCell>$68.00</TableCell>
                 <TableCell>$98.25</TableCell>
+                <TableCell>INV-001</TableCell> {/* Sample Invoice Number */}
                 <TableCell className="hidden md:table-cell">25</TableCell>
                 <TableCell className="hidden md:table-cell">
                   2023-07-12 10:42 AM
@@ -182,6 +187,7 @@ function InventoryTable() {
                 </TableCell>
                 <TableCell>$68.00</TableCell>
                 <TableCell>$98.25</TableCell>
+                <TableCell>INV-001</TableCell> {/* Sample Invoice Number */}
                 <TableCell className="hidden md:table-cell">25</TableCell>
                 <TableCell className="hidden md:table-cell">
                   2023-07-12 10:42 AM
@@ -211,6 +217,7 @@ function InventoryTable() {
                 </TableCell>
                 <TableCell>$68.00</TableCell>
                 <TableCell>$98.25</TableCell>
+                <TableCell>INV-001</TableCell> {/* Sample Invoice Number */}
                 <TableCell className="hidden md:table-cell">25</TableCell>
                 <TableCell className="hidden md:table-cell">
                   2023-07-12 10:42 AM
@@ -240,6 +247,7 @@ function InventoryTable() {
                 </TableCell>
                 <TableCell>$68.00</TableCell>
                 <TableCell>$98.25</TableCell>
+                <TableCell>INV-001</TableCell> {/* Sample Invoice Number */}
                 <TableCell className="hidden md:table-cell">25</TableCell>
                 <TableCell className="hidden md:table-cell">
                   2023-07-12 10:42 AM
