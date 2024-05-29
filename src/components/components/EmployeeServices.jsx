@@ -5,7 +5,7 @@ export default function EmployeeServices({ services }) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Today's Services</CardTitle>
+        <CardTitle>Today&apos;s Services</CardTitle>
       </CardHeader>
       <CardContent className="grid gap-4">
         <div className="hidden md:grid grid-cols-3 gap-4 text-sm font-medium text-gray-500 border-b pb-2">
