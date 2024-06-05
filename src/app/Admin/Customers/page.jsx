@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar";
-import Navbar from "@/components/components/Navbar";
+import Navbar from "@/app/Admin/components/Navbar";
 
 const customers = [
   {

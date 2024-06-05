@@ -1,6 +1,6 @@
-import Navbar from "@/components/components/Navbar";
-import InventoryTable from "@/components/components/InventoryTable";
-import InventoryForm from "@/components/components/InventoryForm";
+import Navbar from "@/app/Admin/components/Navbar";
+import InventoryTable from "@/app/Admin/components/InventoryTable";
+import InventoryForm from "@/app/Admin/components/InventoryForm";
 
 export default function Component() {
   return (
@@ -14,7 +14,7 @@ export default function Component() {
           <InventoryForm />
         </div>
         <div className=" mx-auto container justify-center">
-        <div className="text-2xl font-semibold text-center mt-12 mb-6">
+          <div className="text-2xl font-semibold text-center mt-12 mb-6">
             Inventory
           </div>
           <InventoryTable />

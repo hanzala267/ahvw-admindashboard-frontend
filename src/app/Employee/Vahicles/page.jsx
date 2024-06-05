@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
-import Navbar from "@/components/components/Navbar";
-import VahiclesDetails from "@/components/components/VahiclesDetails";
-import VehiclePast from "@/components/components/VahiclesPast";
-import VehicleUpcoming from "@/components/components/VahiclesUpcoming";
-import MenuIcon from "@/components/components/MenuIcon";
+import Navbar from "@/app/Employee/components/Navbar";
+import VahiclesDetails from "@/app/Employee/components/VahiclesDetails";
+import VehiclePast from "@/app/Employee/components/VahiclesPast";
+import VehicleUpcoming from "@/app/Employee/components/VahiclesUpcoming";
+import MenuIcon from "@/app/Employee/components/MenuIcon";
 import { Input } from "@/components/ui/input";
 
 const vehicles = [

@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
-import EmployeeCharts from "@/components/components/EmployeeCharts";
-import EmployeeServices from "@/components/components/EmployeeServices";
-import Navbar from "@/components/components/Navbar";
-import MenuIcon from "@/components/components/MenuIcon";
+import EmployeeCharts from "@/app/Admin/components/EmployeeCharts";
+import EmployeeServices from "@/app/Admin/components/EmployeeServices";
+import Navbar from "@/app/Admin/components/Navbar";
+import MenuIcon from "@/app/Admin/components/MenuIcon";
 
 // Sample data for employees
 const employees = [

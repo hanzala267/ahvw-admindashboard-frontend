@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
-import ServicesDetails from "@/components/components/ServicesDetails";
-import ServiceInvoice from "@/components/components/ServiceInvoice";
-import Navbar from "@/components/components/Navbar";
+import ServicesDetails from "@/app/Admin/components/ServicesDetails";
+import ServiceInvoice from "@/app/Admin/components/ServiceInvoice";
+import Navbar from "@/app/Admin/components/Navbar";
 
 function page() {
   return (
