@@ -1,4 +1,7 @@
+// /app/Employee/page.js or /pages/employee.js
+
 "use client";
+
 import { useState } from "react";
 import Navbar from "@/app/Employee/components/Navbar";
 import VahiclesDetails from "@/app/Employee/components/VahiclesDetails";

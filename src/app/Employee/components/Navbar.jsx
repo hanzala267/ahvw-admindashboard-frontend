@@ -83,7 +83,7 @@ export default function Navbar() {
                 Home
               </Link>
               <Link
-                href="/Employee/Vehicles"
+                href="/Employee/Vahicles"
                 prefetch={true}
                 className="text-muted-foreground hover:text-foreground"
               >
