@@ -39,12 +39,12 @@ export default function Navbar() {
             </span>
           </Link>
           <Link
-            href="/Employee/Invoice"
+            href="/Employee/Service"
             prefetch={true}
             className="transition-transform transform duration-200 hover:scale-105 hover:text-black"
           >
             <span className="text-gray-800">
-              Invoice
+              Service
               <span className="absolute left-0 bottom-0 w-full h-[2px] bg-black transform scale-x-0 transition-transform duration-200 hover:scale-x-100"></span>
             </span>
           </Link>
@@ -91,11 +91,11 @@ export default function Navbar() {
               </Link>
 
               <Link
-                href="/Employee/Invoice"
+                href="/Employee/Service"
                 prefetch={true}
                 className="text-muted-foreground hover:text-foreground"
               >
-                Invoice
+                Service
               </Link>
               <Link
                 href="/Employee/Stats"
