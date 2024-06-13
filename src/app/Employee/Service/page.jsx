@@ -31,10 +31,13 @@ const Page = () => {
         </div>
         <main className="flex-1 p-6 bg-gray-50 space-y-6">
           {selectedService ? (
-            <ServiceInvoice service={selectedService} />
+            <ServiceInvoice
+              service={selectedService}
+              setSelectedService={setSelectedService}
+            />
           ) : (
             <div className="text-center text-gray-500">
-              Select a service to view the invoice
+              Select a service to view and update
             </div>
           )}
         </main>

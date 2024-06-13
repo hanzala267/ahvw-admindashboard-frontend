@@ -101,42 +101,42 @@ export default function Navbar() {
               />
 
               <Link
-                href="/"
+                href="/Admin"
                 prefetch={true}
                 className="text-muted-foreground hover:text-foreground"
               >
                 Home
               </Link>
               <Link
-                href="/Vahicles"
+                href="/Admin/Vahicles"
                 prefetch={true}
                 className="text-muted-foreground hover:text-foreground"
               >
                 Vehicles
               </Link>
               <Link
-                href="/Customers"
+                href="/Admin/Customers"
                 prefetch={true}
                 className="text-muted-foreground hover:text-foreground"
               >
                 Customers
               </Link>
               <Link
-                href="/Services"
+                href="/Admin/Services"
                 prefetch={true}
                 className="text-muted-foreground hover:text-foreground"
               >
                 Services
               </Link>
               <Link
-                href="/Employee"
+                href="/Admin/Employee"
                 prefetch={true}
                 className="text-muted-foreground hover:text-foreground"
               >
                 Employee
               </Link>
               <Link
-                href="/Inventory"
+                href="/Admin/Inventory"
                 prefetch={true}
                 className="hover:text-foreground"
               >

@@ -1,9 +1,6 @@
 "use client";
 import { useState } from "react";
-import Navbar from "@/app/Employee/components/Navbar";
-import ServiceInvoice from "@/app/Employee/components/ServiceInvoice";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 
 // Dummy data for services
 const services = [
@@ -11,16 +8,19 @@ const services = [
     id: "1",
     name: "Brake Service",
     parts: [{ name: "Brake Pads", qty: 2, price: 49.99, tax: 7.0 }],
+    hours: []
   },
   {
     id: "2",
     name: "Oil Change",
     parts: [{ name: "Oil Filter", qty: 1, price: 24.99, tax: 1.75 }],
+    hours: []
   },
   {
     id: "3",
     name: "Air Filter Replacement",
     parts: [{ name: "Air Filter", qty: 1, price: 19.99, tax: 0.0 }],
+    hours: []
   },
   // Add more services as needed
 ];
