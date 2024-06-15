@@ -12,36 +12,37 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogFooter,
+  DialogTitle,
+  DialogDescription,
+  DialogClose,
+} from "@/components/ui/Dialog";
 
 const ServiceInvoice = ({ service, setSelectedService }) => {
   const { name, parts, hours } = service;
-  const [newPartName, setNewPartName] = useState("");
-  const [newPartQty, setNewPartQty] = useState("");
   const [employeeName, setEmployeeName] = useState("");
   const [serviceHours, setServiceHours] = useState("");
-
-  const handleAddPart = () => {
-    const newPart = {
-      name: newPartName,
-      qty: Number(newPartQty),
-      price: 0, // Placeholder, should be fetched from the database
-      tax: 0, // Placeholder, should be fetched from the database
-    };
-    const updatedParts = [...parts, newPart];
-    setSelectedService({ ...service, parts: updatedParts });
-    setNewPartName("");
-    setNewPartQty("");
-  };
+  const [currentPart, setCurrentPart] = useState(null);
 
   const handleAddHours = () => {
     const newHours = {
       employeeName: employeeName,
       hours: Number(serviceHours),
+      partName: currentPart.name,
     };
     const updatedHours = [...hours, newHours];
     setSelectedService({ ...service, hours: updatedHours });
     setEmployeeName("");
     setServiceHours("");
+  };
+
+  const openHoursDialog = (part) => {
+    setCurrentPart(part);
   };
 
   return (
@@ -51,7 +52,8 @@ const ServiceInvoice = ({ service, setSelectedService }) => {
           <h1 className="font-bold text-3xl">Service</h1>
           <div className="grid gap-2 text-sm leading-loose">
             <p>
-              Thank you for your business with AHVW Service. Please find the details of your recent purchase below.
+              Thank you for your business with AHVW Service. Please find the
+              details of your recent purchase below.
             </p>
             <div className="grid grid-cols-[100px_1fr] gap-2">
               <span className="font-medium">Service:</span>
@@ -63,18 +65,57 @@ const ServiceInvoice = ({ service, setSelectedService }) => {
           <div className="grid gap-2">
             <h2 className="font-bold text-xl">Parts Purchased</h2>
             <div className="grid gap-2 border-t border-gray-200 pt-2 dark:border-gray-800">
-              <div className="grid grid-cols-[1fr_80px_80px_80px] items-center gap-4">
+              <div className="grid grid-cols-[1fr_80px_80px_80px_100px] items-center gap-4">
                 <span className="font-medium">Part Name</span>
                 <span className="font-medium text-right">Qty</span>
                 <span className="font-medium text-right">Price</span>
                 <span className="font-medium text-right">Tax</span>
+                <span className="font-medium text-right">Actions</span>
               </div>
               {parts.map((part, index) => (
-                <div key={index} className="grid grid-cols-[1fr_80px_80px_80px] items-center gap-4">
+                <div
+                  key={index}
+                  className="grid grid-cols-[1fr_80px_80px_80px_100px] items-center gap-4"
+                >
                   <span>{part.name}</span>
                   <span className="text-right">{part.qty}</span>
                   <span className="text-right">xxxx</span>
                   <span className="text-right">xxxx</span>
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button onClick={() => openHoursDialog(part)}>
+                        Add Hours
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent>
+                      <DialogHeader>
+                        <DialogTitle>
+                          Add Service Hours for {currentPart?.name}
+                        </DialogTitle>
+                      </DialogHeader>
+                      <div className="grid gap-2">
+                        <Label htmlFor="employee-name">Employee Name</Label>
+                        <Input
+                          id="employee-name"
+                          type="text"
+                          value={employeeName}
+                          onChange={(e) => setEmployeeName(e.target.value)}
+                          placeholder="Employee Name"
+                        />
+                        <Label htmlFor="service-hours">Hours</Label>
+                        <Input
+                          id="service-hours"
+                          type="number"
+                          value={serviceHours}
+                          onChange={(e) => setServiceHours(e.target.value)}
+                          placeholder="Hours"
+                        />
+                      </div>
+                      <DialogFooter>
+                        <Button onClick={handleAddHours}>Add Hours</Button>
+                      </DialogFooter>
+                    </DialogContent>
+                  </Dialog>
                 </div>
               ))}
             </div>
@@ -87,66 +128,15 @@ const ServiceInvoice = ({ service, setSelectedService }) => {
                 <span className="font-medium text-right">Hours</span>
               </div>
               {hours.map((hour, index) => (
-                <div key={index} className="grid grid-cols-[1fr_80px] items-center gap-4">
+                <div
+                  key={index}
+                  className="grid grid-cols-[1fr_80px] items-center gap-4"
+                >
                   <span>{hour.employeeName}</span>
                   <span className="text-right">{hour.hours}</span>
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-        <div className="grid gap-4">
-          <div className="grid gap-2">
-            <h2 className="font-bold text-xl">Add New Part</h2>
-            <div className="grid gap-2">
-              <Label htmlFor="new-part-name">Part Name</Label>
-              <Input
-                id="new-part-name"
-                type="text"
-                value={newPartName}
-                onChange={(e) => setNewPartName(e.target.value)}
-                placeholder="Part Name"
-              />
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="new-part-qty">Part Quantity</Label>
-              <Input
-                id="new-part-qty"
-                type="number"
-                value={newPartQty}
-                onChange={(e) => setNewPartQty(e.target.value)}
-                placeholder="Part Quantity"
-              />
-            </div>
-            <Button className="w-full mb-4" onClick={handleAddPart}>
-              Add Part
-            </Button>
-          </div>
-          <div className="grid gap-2">
-            <h2 className="font-bold text-xl">Add Service Hours</h2>
-            <div className="grid gap-2">
-              <Label htmlFor="employee-name">Employee Name</Label>
-              <Input
-                id="employee-name"
-                type="text"
-                value={employeeName}
-                onChange={(e) => setEmployeeName(e.target.value)}
-                placeholder="Employee Name"
-              />
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="service-hours">Hours</Label>
-              <Input
-                id="service-hours"
-                type="number"
-                value={serviceHours}
-                onChange={(e) => setServiceHours(e.target.value)}
-                placeholder="Hours"
-              />
-            </div>
-            <Button className="w-full mb-4" onClick={handleAddHours}>
-              Add Hours
-            </Button>
           </div>
         </div>
       </div>
