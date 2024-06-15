@@ -3,14 +3,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+
 import { Label } from "@/components/ui/label";
 import {
   Dialog,
@@ -21,7 +14,7 @@ import {
   DialogTitle,
   DialogDescription,
   DialogClose,
-} from "@/components/ui/Dialog";
+} from "@/components/ui/dialog";
 
 const ServiceInvoice = ({ service, setSelectedService }) => {
   const { name, parts, hours } = service;
