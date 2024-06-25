@@ -27,7 +27,7 @@ export default function Component() {
           </div>
           <div className="flex flex-col items-end justify-center gap-2">
             <Link
-              href="/Employee"
+              href="/Client"
               className="text-4xl font-bold text-gray-600 transition ease-in-out duration-300 hover:text-gray-900 hover:translate-x-2 hover:-translate-y-2 dark:text-gray-50 dark:hover:text-gray-300"
               prefetch={true}
             >
