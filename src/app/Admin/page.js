@@ -1,39 +1,39 @@
 "use client";
+
 import { useState } from "react";
 import Navbar from "@/app/Admin/components/Navbar";
 import { Calendar } from "@/components/ui/calendar";
 import Lowstock from "@/app/Admin/components/Lowstock";
 import Todayservises from "@/app/Admin/components/Todayservices";
-export default function Home() {
+import { withRoleProtection } from "../../components/withRoleProtection";
+
+function AdminDashboard() {
   const [date, setDate] = useState(new Date());
 
   return (
     <>
       <Navbar />
-      <div className="grid grid-cols-1 md:grid-cols-2  justify-center  py-2">
-        <div>
-          <div className="text-2xl font-semibold text-center mt-12 mb-6">
-            Services
-          </div>
-          <div className=" flex items-center justify-center">
-            <Calendar mode="single" selected={date} onSelect={setDate} />
-          </div>
-          <div className="text-2xl  font-semibold text-center mt-16 mb-2">
-            Low Part Stock
-          </div>
-          <div className="mt-6 mx-2  sm;mx-8">
-            <Lowstock />
-          </div>
+      <div className="flex flex-col md:flex-row gap-4 p-4">
+        <div className="w-full md:w-1/2 lg:w-1/3">
+          <h2 className="text-2xl font-bold mb-4">Services</h2>
+          <Calendar
+            mode="single"
+            selected={date}
+            onSelect={setDate}
+            className="rounded-md border"
+          />
         </div>
-        <div>
-          <div className="text-2xl font-semibold text-center mt-12 mb-6">
-            Today Services
-          </div>
-          <div className="mt-6 mx-2 sm:mx-8">
-            <Todayservises />
-          </div>
+        <div className="w-full md:w-1/2 lg:w-1/3">
+          <h2 className="text-2xl font-bold mb-4">Low Part Stock</h2>
+          <Lowstock />
         </div>
+      </div>
+      <div className="p-4">
+        <h2 className="text-2xl font-bold mb-4">Today Services</h2>
+        <Todayservises />
       </div>
     </>
   );
 }
+
+export default withRoleProtection(AdminDashboard, ["admin"]);

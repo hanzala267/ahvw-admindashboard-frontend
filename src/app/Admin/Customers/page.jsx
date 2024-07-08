@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar";
 import Navbar from "@/app/Admin/components/Navbar";
+import { withRoleProtection } from "../../../components/withRoleProtection";
 
 const customers = [
   {
@@ -94,7 +95,7 @@ const customers = [
   // Add more customers if needed
 ];
 
-export default function Component() {
+function AdminCustomer() {
   const [selectedCustomer, setSelectedCustomer] = useState(customers[0]);
 
   const handleCustomerClick = (customer) => {
@@ -210,3 +211,4 @@ export default function Component() {
     </>
   );
 }
+export default withRoleProtection(AdminCustomer, ["admin"]);

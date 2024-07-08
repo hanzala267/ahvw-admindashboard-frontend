@@ -7,6 +7,7 @@ import VehiclePast from "@/app/Client/components/VahiclesPast";
 import VehicleUpcoming from "@/app/Client/components/VahiclesUpcoming";
 import MenuIcon from "@/app/Client/components/MenuIcon";
 import { Input } from "@/components/ui/input";
+import { withRoleProtection } from "../../../components/withRoleProtection";
 
 const vehicles = [
   { id: "cajd6hcx", name: "Vehicle 1", overdue: true },
@@ -15,7 +16,7 @@ const vehicles = [
   { id: "fajd9hfa", name: "Vehicle 4", overdue: false },
 ];
 
-const Page = () => {
+const CustomerVahicle = () => {
   const [selectedVehicle, setSelectedVehicle] = useState(vehicles[0]);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -88,4 +89,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default withRoleProtection(CustomerVahicle, ["customer"]);

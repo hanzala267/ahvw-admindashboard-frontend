@@ -2,6 +2,7 @@ import Navbar from "@/app/Client/components/Navbar";
 import OngoingServices from "@/app/Client/components/OngoingServices";
 import UpcomingServices from "@/app/Client/components/UpcomingServices";
 import ClosedServices from "@/app/Client/components/ClosedServices";
+import { withRoleProtection } from "../../../components/withRoleProtection";
 
 const ongoingServices = [
   {
@@ -48,7 +49,7 @@ const closedServices = [
   },
 ];
 
-export default function ServicesPage() {
+ function ServicesPage() {
   return (
     <div>
       <Navbar />
@@ -83,3 +84,4 @@ export default function ServicesPage() {
     </div>
   );
 }
+export default withRoleProtection(ServicesPage, ["customer"]);
