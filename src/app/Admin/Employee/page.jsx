@@ -4,7 +4,6 @@ import EmployeeCharts from "@/app/Admin/components/EmployeeCharts";
 import EmployeeServices from "@/app/Admin/components/EmployeeServices";
 import Navbar from "@/app/Admin/components/Navbar";
 import MenuIcon from "@/app/Admin/components/MenuIcon";
-import { withRoleProtection } from "../../../components/withRoleProtection";
 
 // Sample data for employees
 const employees = [
@@ -297,7 +296,7 @@ const employees = [
   },
 ];
 
-const AdminEmployee = () => {
+const EmployeesPage = () => {
   const [selectedEmployee, setSelectedEmployee] = useState(employees[0]);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -349,4 +348,4 @@ const AdminEmployee = () => {
   );
 };
 
-export default withRoleProtection(AdminEmployee, ["admin"]);
+export default EmployeesPage;

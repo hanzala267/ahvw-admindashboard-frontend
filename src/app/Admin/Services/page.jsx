@@ -3,9 +3,8 @@ import React from "react";
 import ServicesDetails from "@/app/Admin/components/ServicesDetails";
 import ServiceInvoice from "@/app/Admin/components/ServiceInvoice";
 import Navbar from "@/app/Admin/components/Navbar";
-import { withRoleProtection } from "../../../components/withRoleProtection";
 
-function AdminServices() {
+function page() {
   return (
     <>
       <Navbar />
@@ -24,4 +23,4 @@ function AdminServices() {
   );
 }
 
-export default withRoleProtection(AdminServices, ["admin"]);
+export default page;

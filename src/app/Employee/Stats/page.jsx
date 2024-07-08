@@ -3,7 +3,6 @@ import { useState } from "react";
 import EmployeeCharts from "@/app/Employee/components/EmployeeCharts";
 import EmployeeInputForm from "@/app/Employee/components/EmployeeInputForm";
 import Navbar from "@/app/Employee/components/Navbar";
-import { withRoleProtection } from "../../../components/withRoleProtection";
 
 const initialWeeklyData = [
   { day: "Mon", hours: 6 },
@@ -30,7 +29,7 @@ const initialMonthlyData = [
   { month: "Dec", hours: 8 },
 ];
 
-const EmployeeStats = () => {
+const EmployeeDashboard = () => {
   const [weeklyData, setWeeklyData] = useState(initialWeeklyData);
   const [monthlyData, setMonthlyData] = useState(initialMonthlyData);
 
@@ -66,4 +65,4 @@ const EmployeeStats = () => {
   );
 };
 
-export default withRoleProtection(EmployeeStats, ["employee"]);
+export default EmployeeDashboard;

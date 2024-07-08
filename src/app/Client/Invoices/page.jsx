@@ -5,8 +5,6 @@ import InvoiceDetail from "@/app/Client/components/InvoiceDetail";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { withRoleProtection } from "../../../components/withRoleProtection";
-
 
 const paidInvoices = [
   {
@@ -64,7 +62,7 @@ const unpaidInvoices = [
   // Add more unpaid invoices here
 ];
 
- function InvoicesPage() {
+export default function InvoicesPage() {
   const [selectedInvoice, setSelectedInvoice] = useState(null);
 
   const handleInvoiceClick = (invoice) => {
@@ -125,6 +123,3 @@ const unpaidInvoices = [
     </div>
   );
 }
-
-export default withRoleProtection(InvoicesPage, ["customer"]);
-

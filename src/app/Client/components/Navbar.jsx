@@ -4,134 +4,118 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Image from "next/image";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { signOut, useSession } from "next-auth/react";
 
 export default function Navbar() {
-  const { data: session } = useSession();
-
   return (
     <div className="flex h-full w-full flex-col">
-      <header className="sticky top-0 flex h-16 items-center justify-between border-b px-4 md:px-6 bg-background shadow-sm">
-        <div className="flex items-center">
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button
-                variant="outline"
-                size="icon"
-                className="mr-2 shrink-0 md:hidden"
-              >
-                <Menu className="h-5 w-5" />
-                <span className="sr-only">Toggle navigation menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="left">
-              <nav className="grid gap-6 text-lg font-medium">
-                <Image src="/AWVH.png" width={150} height={150} alt="Logo" />
-                <Link
-                  href="/client"
-                  prefetch={true}
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  Home
-                </Link>
-                <Link
-                  href="/client/Vehicles"
-                  prefetch={true}
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  Vehicles
-                </Link>
-                <Link
-                  href="/client/Services"
-                  prefetch={true}
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  Services
-                </Link>
-                <Link
-                  href="/client/Invoices"
-                  prefetch={true}
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  Invoices
-                </Link>
-              </nav>
-            </SheetContent>
-          </Sheet>
+      <header className="sticky top-0 flex h-16 items-center gap-4 border-b px-4 md:px-6 bg-background shadow-sm">
+        <nav className="flex flex-col gap-6 text-lg font-medium hidden md:flex md:flex-row md:items-center md:gap-8 md:text-sm lg:gap-10 p-4">
+          <Image
+            src="/AWVH.png"
+            width={40}
+            height={40}
+            alt="Logo"
+            className="transition-transform duration-200 hover:scale-110"
+          />
+          <Link
+            href="/Client"
+            prefetch={true}
+            className="transition-transform transform duration-200 hover:scale-105 hover:text-black"
+          >
+            <span className="text-gray-800">
+              Home
+              <span className="absolute left-0 bottom-0 w-full h-[2px] bg-black transform scale-x-0 transition-transform duration-200 hover:scale-x-100"></span>
+            </span>
+          </Link>
+          <Link
+            href="/Client/Vehicles"
+            prefetch={true}
+            className="transition-transform transform duration-200 hover:scale-105 hover:text-black"
+          >
+            <span className="text-gray-800">
+              Vehicles
+              <span className="absolute left-0 bottom-0 w-full h-[2px] bg-black transform scale-x-0 transition-transform duration-200 hover:scale-x-100"></span>
+            </span>
+          </Link>
+          <Link
+            href="/Client/Services"
+            prefetch={true}
+            className="transition-transform transform duration-200 hover:scale-105 hover:text-black"
+          >
+            <span className="text-gray-800">
+              Services
+              <span className="absolute left-0 bottom-0 w-full h-[2px] bg-black transform scale-x-0 transition-transform duration-200 hover:scale-x-100"></span>
+            </span>
+          </Link>
+          <Link
+            href="/Client/Invoices"
+            prefetch={true}
+            className="transition-transform transform duration-200 hover:scale-105 hover:text-black"
+          >
+            <span className="text-gray-800">
+              Invoices
+              <span className="absolute left-0 bottom-0 w-full h-[2px] bg-black transform scale-x-0 transition-transform duration-200 hover:scale-x-100"></span>
+            </span>
+          </Link>
+        </nav>
 
-          <nav className="hidden md:flex md:items-center md:gap-6 text-sm font-medium">
-            <Image
-              src="/AWVH.png"
-              width={40}
-              height={40}
-              alt="Logo"
-              className="mr-4 transition-transform duration-200 hover:scale-110"
-            />
-            <Link
-              href="/client"
-              prefetch={true}
-              className="transition-transform transform duration-200 hover:scale-105 hover:text-black"
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button
+              variant="outline"
+              size="icon"
+              className="shrink-0 md:hidden"
             >
-              <span className="text-gray-800 relative">
+              <Menu className="h-5 w-5" />
+              <span className="sr-only">Toggle navigation menu</span>
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="left">
+            <nav className="grid gap-6 text-lg font-medium">
+              <Image src="/AWVH.png" width={150} height={150} alt="Logo" />
+              <Link
+                href="/Client"
+                prefetch={true}
+                className="text-muted-foreground hover:text-foreground"
+              >
                 Home
-                <span className="absolute left-0 bottom-0 w-full h-[2px] bg-black transform scale-x-0 transition-transform duration-200 hover:scale-x-100"></span>
-              </span>
-            </Link>
-            <Link
-              href="/client/Vehicles"
-              prefetch={true}
-              className="transition-transform transform duration-200 hover:scale-105 hover:text-black"
-            >
-              <span className="text-gray-800 relative">
+              </Link>
+              <Link
+                href="/Client/Vehicles"
+                prefetch={true}
+                className="text-muted-foreground hover:text-foreground"
+              >
                 Vehicles
-                <span className="absolute left-0 bottom-0 w-full h-[2px] bg-black transform scale-x-0 transition-transform duration-200 hover:scale-x-100"></span>
-              </span>
-            </Link>
-            <Link
-              href="/client/Services"
-              prefetch={true}
-              className="transition-transform transform duration-200 hover:scale-105 hover:text-black"
-            >
-              <span className="text-gray-800 relative">
+              </Link>
+              <Link
+                href="/Client/Services"
+                prefetch={true}
+                className="text-muted-foreground hover:text-foreground"
+              >
                 Services
-                <span className="absolute left-0 bottom-0 w-full h-[2px] bg-black transform scale-x-0 transition-transform duration-200 hover:scale-x-100"></span>
-              </span>
-            </Link>
-            <Link
-              href="/client/Invoices"
-              prefetch={true}
-              className="transition-transform transform duration-200 hover:scale-105 hover:text-black"
-            >
-              <span className="text-gray-800 relative">
+              </Link>
+              <Link
+                href="/Client/Invoices"
+                prefetch={true}
+                className="text-muted-foreground hover:text-foreground"
+              >
                 Invoices
-                <span className="absolute left-0 bottom-0 w-full h-[2px] bg-black transform scale-x-0 transition-transform duration-200 hover:scale-x-100"></span>
-              </span>
-            </Link>
-          </nav>
+              </Link>
+            </nav>
+          </SheetContent>
+        </Sheet>
+
+        <div className="flex w-full items-center justify-end gap-4 md:ml-auto md:gap-2 lg:gap-4 font-semibold">
+          <div>Client Dashboard</div>
         </div>
 
-        <div className="flex items-center gap-4">
-          <div className="hidden sm:block font-semibold mr-4">client Dashboard</div>
-          {session?.user && (
-            <div className="flex items-center gap-2">
-              <Button
-                onClick={() => signOut()}
-                size="sm"
-                className="hidden sm:inline-flex"
-              >
-                Sign Out
-              </Button>
-              <Avatar>
-                <AvatarImage
-                  src={session.user.image || "https://github.com/shadcn.png"}
-                />
-                <AvatarFallback>
-                  {session.user.name ? session.user.name[0] : "?"}
-                </AvatarFallback>
-              </Avatar>
-            </div>
-          )}
-        </div>
+        <Button className="rounded-full" size="icon" variant="secondary">
+          <Avatar>
+            <AvatarImage src="https://github.com/shadcn.png" />
+            <AvatarFallback>CN</AvatarFallback>
+          </Avatar>
+          <span className="sr-only">Toggle user menu</span>
+        </Button>
       </header>
     </div>
   );

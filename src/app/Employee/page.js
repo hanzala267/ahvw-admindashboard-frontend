@@ -1,22 +1,25 @@
 "use client";
-
 import React from "react";
 import ServicesDetails from "@/app/Employee/components/ServicesDetails";
 import Navbar from "@/app/Employee/components/Navbar";
 import AddServices from "@/app/Employee/components/AddServices";
-import { withRoleProtection } from "../../components/withRoleProtection";
 
-function EmployeeDashboard() {
+function page() {
   return (
     <>
       <Navbar />
-      <div className="container mx-auto p-4">
-        <h1 className="text-2xl font-bold mb-4">Services</h1>
+
+      <div className="text-4xl font-semibold text-center mt-12 mb-6">
+        Services
+      </div>
+      <div className="sm:col-span-1 mx-auto container justify-center">
         <ServicesDetails />
+      </div>
+      <div className="text-4xl font-semibold text-center mt-12 mb-6">
         <AddServices />
       </div>
     </>
   );
 }
 
-export default withRoleProtection(EmployeeDashboard, ["employee"]);
+export default page;

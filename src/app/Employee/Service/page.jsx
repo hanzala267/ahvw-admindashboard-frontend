@@ -4,9 +4,8 @@ import Navbar from "@/app/Employee/components/Navbar";
 import ServiceSidebar from "@/app/Employee/components/ServiceSidebar";
 import ServiceInvoice from "@/app/Employee/components/ServiceInvoice";
 import MenuIcon from "@/app/Employee/components/MenuIcon";
-import { withRoleProtection } from "../../../components/withRoleProtection";
 
-const EmployeeServices = () => {
+const Page = () => {
   const [selectedService, setSelectedService] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -47,4 +46,4 @@ const EmployeeServices = () => {
   );
 };
 
-export default withRoleProtection(EmployeeServices, ["employee"]);
+export default Page;

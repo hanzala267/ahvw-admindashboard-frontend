@@ -1,84 +1,50 @@
-"use client";
+import Link from "next/link";
 
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useEffect } from "react";
-import { useAuth } from "@/contexts/AuthContext";
-import { Loader2 } from "lucide-react"; // Import the loader icon
-
-export default function Home() {
-  const { data: session, status } = useSession();
-  const router = useRouter();
-  const { signIn, signOut } = useAuth();
-
-  useEffect(() => {
-    if (status === "authenticated" && session?.user?.role) {
-      switch (session.user.role) {
-        case "admin":
-          router.push("/admin");
-          break;
-        case "employee":
-          router.push("/employee");
-          break;
-        case "customer":
-          router.push("/client");
-          break;
-        default:
-          break;
-      }
-    }
-  }, [status, session, router]);
-
-  if (status === "loading") {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <Card className="w-[300px]">
-          <CardContent className="flex flex-col items-center p-6">
-            <Loader2 className="h-12 w-12 animate-spin text-primary" />
-            <p className="mt-2 text-lg font-semibold">Loading...</p>
-          </CardContent>
-        </Card>
-      </div>
-    );
-  }
-
+export default function Component() {
   return (
-    <div className="container mx-auto mt-10">
-      <Card className="max-w-md mx-auto">
-        <CardHeader>
-          <CardTitle className="text-2xl font-bold text-center">
-            Welcome to Your App
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          {session ? (
-            <div className="space-y-4">
-              <p className="text-center">
-                You are signed in as {session.user.email}.
-              </p>
-              <div className="flex justify-center space-x-4">
-                <Button onClick={() => router.push(`/${session.user.role}`)}>
-                  View Dashboard
-                </Button>
-                <Button variant="outline" onClick={() => signOut()}>
-                  Sign Out
-                </Button>
-              </div>
-            </div>
-          ) : (
-            <div className="space-y-4">
-              <p className="text-center">
-                Please sign in to access all features.
-              </p>
-              <div className="flex justify-center">
-                <Button onClick={() => router.push("/login")}>Sign In</Button>
-              </div>
-            </div>
-          )}
-        </CardContent>
-      </Card>
+    <div className="flex h-screen w-full items-center justify-center ">
+      <div className="flex h-full w-full max-w-7xl sm:flex-row-reverse flex-col-reverse items-center justify-between px-4 md:px-6 lg:px-8">
+        <nav className=" h-[70%] sm:h-full flex-col items-end justify-center gap-8 flex">
+          <div className="flex flex-col items-end justify-center gap-2">
+            <Link
+              href="/Admin"
+              className="text-4xl font-bold text-gray-600 transition ease-in-out duration-300 hover:text-gray-900 hover:translate-x-2 hover:-translate-y-2 dark:text-gray-50 dark:hover:text-gray-300"
+              prefetch={true}
+            >
+              Admin
+            </Link>
+            <div className="h-1 w-0 rounded-full bg-gray-900 transition-all duration-300 group-hover:w-full dark:bg-gray-50" />
+          </div>
+          <div className="flex flex-col items-end justify-center gap-2">
+            <Link
+              href="/Employee"
+              className="text-4xl font-bold text-gray-600 transition ease-in-out duration-300 hover:text-gray-900 hover:translate-x-2 hover:-translate-y-2 dark:text-gray-50 dark:hover:text-gray-300"
+              prefetch={true}
+            >
+              Employee
+            </Link>
+            <div className="h-1 w-0 rounded-full bg-gray-900 transition-all duration-300 group-hover:w-full dark:bg-gray-50" />
+          </div>
+          <div className="flex flex-col items-end justify-center gap-2">
+            <Link
+              href="/Client"
+              className="text-4xl font-bold text-gray-600 transition ease-in-out duration-300 hover:text-gray-900 hover:translate-x-2 hover:-translate-y-2 dark:text-gray-50 dark:hover:text-gray-300"
+              prefetch={true}
+            >
+              Client
+            </Link>
+            <div className="h-1 w-0 rounded-full bg-gray-900 transition-all duration-300 group-hover:w-full dark:bg-gray-50" />
+          </div>
+        </nav>
+        <div className="hidden flex flex-col items-center justify-center gap-8 md:gap-2">
+          <h1 className="text-5xl font-bold text-gray-900 dark:text-gray-50 md:text-6xl lg:text-7xl">
+            Welcome
+          </h1>
+          <p className="hidden  max-w-md text-center text-gray-500 dark:text-gray-400 md:text-lg lg:text-xl">
+            Explore our platform and manage your business with ease.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

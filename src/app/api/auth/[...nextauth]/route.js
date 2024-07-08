@@ -1,9 +1,9 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import prisma from "@/lib/prisma";
+import prisma from "../../../../../lib/prisma";
 import { compare } from "bcrypt";
 
-const authOptions = {
+export const authOptions = {
   providers: [
     CredentialsProvider({
       name: "Credentials",
@@ -38,7 +38,7 @@ const authOptions = {
           email: user.email,
           name: user.name,
           role: user.role,
-          image: user.image,
+          image: user.image, // Include the user's image
         };
       },
     }),
@@ -47,14 +47,14 @@ const authOptions = {
     async jwt({ token, user }) {
       if (user) {
         token.role = user.role;
-        token.image = user.image;
+        token.image = user.image; // Include the image in the JWT token
       }
       return token;
     },
     async session({ session, token }) {
       if (session?.user) {
         session.user.role = token.role;
-        session.user.image = token.image;
+        session.user.image = token.image; // Include the image in the session
       }
       return session;
     },
@@ -67,5 +67,4 @@ const authOptions = {
 
 const handler = NextAuth(authOptions);
 
-export const GET = handler;
-export const POST = handler;
+export { handler as GET, handler as POST };

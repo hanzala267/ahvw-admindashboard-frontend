@@ -6,7 +6,6 @@ import VehiclePast from "@/app/Admin/components/VahiclesPast";
 import VehicleUpcoming from "@/app/Admin/components/VahiclesUpcoming";
 import MenuIcon from "@/app/Admin/components/MenuIcon";
 import { Input } from "@/components/ui/input";
-import { withRoleProtection } from "../../../components/withRoleProtection";
 
 const vehicles = [
   { id: "cajd6hcx", name: "Vehicle 1" },
@@ -15,7 +14,7 @@ const vehicles = [
   { id: "fajd9hfa", name: "Vehicle 4" },
 ];
 
-const AdminVahicle = () => {
+const Page = () => {
   const [selectedVehicle, setSelectedVehicle] = useState(vehicles[0]);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -77,4 +76,4 @@ const AdminVahicle = () => {
   );
 };
 
-export default withRoleProtection(AdminVahicle, ["admin"]);
+export default Page;
